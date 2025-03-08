@@ -1,33 +1,36 @@
+#include "PhoneBook.hpp"
 #include <iostream>
 #include <string>
-#include "PhoneBook.hpp"
 
 int main()
 {
-    PhoneBook   phonebook;
-    std::string command;
+	PhoneBook phoneBook;
+	std::string command;
 
-    while (true)
-    {
-        std::cout << "Enter command (ADD, SEARCH, EXIT): ";
-        if (!std::getline(std::cin, command))
-        {
-            std::cout << std::endl << "EOF reached or error. Exiting." << std::endl;
+	std::cout << "Welcome to My Awesome PhoneBook!" << std::endl;
+	std::cout << "Available commands: ADD, SEARCH, EXIT" << std::endl;
+
+	while (true)
+	{
+		std::cout << "Enter command: ";
+		if (!std::getline(std::cin, command))
+		{
+			std::cout << std::endl
+					  << "Exiting..." << std::endl;
+			break;
+		}
+		if (command == "EXIT") {
+            std::cout << "Exiting..." << std::endl;
             break;
+        } else if (command == "ADD") {
+            phoneBook.addContact();
+        } else if (command == "SEARCH") {
+            phoneBook.searchContact();
+        } else if (command.empty()) {
+            continue;
+        } else {
+            std::cout << "Unknown command. Try again." << std::endl;
         }
-        if (command == "ADD")
-            phonebook.addContact();
-        else if (command == "SEARCH")
-            phonebook.searchContacts();
-        else if (command == "EXIT")
-        {
-            std::cout << "Goodbye!" << std::endl;
-            break;
-        }
-        else if (!command.empty())
-        {
-            std::cout << "Invalid command." << std::endl;
-        }
-    }
-    return 0;
+	}
+	return 0;
 }
