@@ -58,7 +58,8 @@ void PhoneBook::addContact()
 		return;
 	}
 	_contacts[_oldestIndex] = newContact;
-	_oldestIndex = (_oldestIndex + 1) % MAX_CONTACTS;
+	_oldestIndex = (_oldestIndex) % MAX_CONTACTS;
+	_oldestIndex++;
 	_count++;
 	std::cout << "Contact added successfully!" << std::endl;
 }
