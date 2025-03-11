@@ -1,55 +1,37 @@
-#include "Harl.hpp"
 #include <iostream>
+#include "Harl.hpp"
 
 Harl::Harl() {}
 Harl::~Harl() {}
 
+// DEBUG: Обычно самый подробный и "легковесный" уровень жалоб.
 void Harl::debug(void) {
-    std::cout << "[ DEBUG ]\nI love extra bacon..." << std::endl;
+    std::cout << "[ DEBUG ]\n"
+              << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. "
+              << "I really do!\n"
+              << std::endl;
 }
 
+// INFO: Следующий по приоритету уровень. Может содержать более важные замечания.
 void Harl::info(void) {
-    std::cout << "[ INFO ]\nAdding extra bacon cost more..." << std::endl;
+    std::cout << "[ INFO ]\n"
+              << "I cannot believe adding extra bacon costs more money. "
+              << "You didn’t put enough bacon in my burger! "
+              << "If you did, I wouldn’t be asking for more!\n"
+              << std::endl;
 }
 
+// WARNING: Уровень предупреждения; жалоба становится серьёзнее.
 void Harl::warning(void) {
-    std::cout << "[ WARNING ]\nI deserve extra bacon for free..." << std::endl;
+    std::cout << "[ WARNING ]\n"
+              << "I think I deserve to have some extra bacon for free. "
+              << "I’ve been coming for years whereas you started working here since last month.\n"
+              << std::endl;
 }
 
+// ERROR: Критическое сообщение – "невозможно терпеть".
 void Harl::error(void) {
-    std::cout << "[ ERROR ]\nThis is unacceptable..." << std::endl;
-}
-
-static int getLevelIndex(std::string level) {
-    std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-    for (int i = 0; i < 4; i++) {
-        if (levels[i] == level)
-            return i;
-    }
-    return -1;
-}
-
-void Harl::complainFilter(std::string level) {
-    int index = getLevelIndex(level);
-
-    switch (index) {
-        case 0: // DEBUG
-            this->debug();
-            std::cout << std::endl;
-            // fall through
-        case 1: // INFO
-            this->info();
-            std::cout << std::endl;
-            // fall through
-        case 2: // WARNING
-            this->warning();
-            std::cout << std::endl;
-            // fall through
-        case 3: // ERROR
-            this->error();
-            break;
-        default:
-            std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-            break;
-    }
+    std::cout << "[ ERROR ]\n"
+              << "This is unacceptable, I want to speak to the manager now.\n"
+              << std::endl;
 }

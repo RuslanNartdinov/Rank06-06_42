@@ -1,20 +1,14 @@
 #include "Zombie.hpp"
 #include <iostream>
 
-// Объявление функций, если нужны (можно подключить hpp).
-Zombie* newZombie(std::string name);
-void randomChump(std::string name);
+int main(){
+	std::cout << "heap memory (newZombie)" << std::endl;
+	Zombie *heapZombie = newZombie("(heap zombie)");
+	heapZombie->announce();
+	delete heapZombie;
 
-int main() {
-    // 1) Создаём зомби на куче
-    Zombie* heapZombie = newZombie("HeapZombie");
-    heapZombie->announce();
+	std::cout << "stack memory (randomChump)";
+	randomChump("(stack zombie)");
 
-    // 2) Создаём зомби на стеке (через randomChump)
-    randomChump("StackZombie");
-
-    // 3) Удаляем зомби, созданного на куче
-    delete heapZombie;
-
-    return 0;
+	return 0;
 }

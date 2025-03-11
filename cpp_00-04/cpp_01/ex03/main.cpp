@@ -15,7 +15,7 @@ int main() {
     {
         Weapon club("crude spiked club");
         HumanB jim("Jim");
-        jim.attack(); // проверить что нет оружия
+        jim.attack();
         jim.setWeapon(club);
         jim.attack();
         club.setType("some other type of club");

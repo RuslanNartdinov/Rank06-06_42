@@ -2,7 +2,6 @@
 #include <iostream>
 
 Zombie::Zombie() {
-    // Конструктор по умолчанию, пока без логики
 }
 
 Zombie::~Zombie() {

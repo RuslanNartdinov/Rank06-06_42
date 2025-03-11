@@ -1,6 +1,5 @@
 #include "Zombie.hpp"
 
-// Функция создаёт N зомби "одним куском" памяти
 Zombie* zombieHorde(int N, std::string name) {
     if (N <= 0)
         return NULL;
