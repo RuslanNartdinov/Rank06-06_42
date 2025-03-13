@@ -12,12 +12,12 @@ Fixed::Fixed(const float f) {
 }
 
 Fixed::Fixed(const Fixed &other) {
-    _value = other._value;
+    *this = other;
 }
 
 Fixed &Fixed::operator=(const Fixed &other) {
     if (this != &other)
-        _value = other._value;
+        _value = other.getRawBits();
     return *this;
 }
 
