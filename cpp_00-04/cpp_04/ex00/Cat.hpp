@@ -3,16 +3,14 @@
 
 #include "Animal.hpp"
 
-class Cat : public Animal {
+class Cat : public Animal
+{
 public:
-    // Канонические
-    Cat();
-    Cat(const Cat &other);
-    Cat &operator=(const Cat &other);
-    virtual ~Cat();
-
-    // Переопределяем метод makeSound
-    virtual void makeSound() const;
+	Cat();
+	Cat(const Cat &other);
+	Cat &operator=(const Cat &other);
+	virtual ~Cat();
+	void makeSound() const;
 };
 
 #endif

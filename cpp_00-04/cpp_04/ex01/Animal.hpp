@@ -1,25 +1,20 @@
 #ifndef ANIMAL_HPP
 #define ANIMAL_HPP
 
-#include <iostream>
 #include <string>
 
-class Animal {
+class Animal
+{
 protected:
-    std::string type;  // защищённое, чтобы наследники могли менять
+	std::string type;
 
 public:
-    // Канонические методы
-    Animal();
-    Animal(const Animal &other);
-    Animal &operator=(const Animal &other);
-    virtual ~Animal(); // виртуальный деструктор
-
-    // Геттер
-    std::string getType() const;
-
-    // Виртуальный метод (но не чисто виртуальный)
-    virtual void makeSound() const;
+	Animal();
+	virtual ~Animal();
+	Animal(const Animal &other);
+	Animal &operator=(const Animal &other);
+	std::string getType() const;
+	virtual void makeSound() const;
 };
 
 #endif

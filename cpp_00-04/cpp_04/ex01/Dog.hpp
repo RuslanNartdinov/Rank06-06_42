@@ -4,21 +4,19 @@
 #include "Animal.hpp"
 #include "Brain.hpp"
 
-class Dog : public Animal {
+class Dog : public Animal
+{
 private:
-    Brain* brain; // динамический объект Brain
+	Brain *brain;
 
 public:
-    Dog();
-    Dog(const Dog &other);
-    Dog &operator=(const Dog &other);
-    virtual ~Dog();
-
-    virtual void makeSound() const;
-
-    // Методы для работы с brain
-    void setIdea(int index, const std::string &idea);
-    const std::string &getIdea(int index) const;
+	Dog();
+	Dog(const Dog &other);
+	Dog &operator=(const Dog &other);
+	virtual ~Dog();
+	void makeSound() const;
+	void setIdea(int index, const std::string &idea);
+	std::string getIdea(int index) const;
 };
 
 #endif
