@@ -1,47 +1,47 @@
 #include "ScavTrap.hpp"
-#include <iostream>
 
-ScavTrap::ScavTrap() : ClapTrap() {
-    _hitPoints = 100;
-    _energyPoints = 50;
-    _attackDamage = 20;
-    std::cout << "ScavTrap default constructor called\n";
+ScavTrap::ScavTrap(const std::string &n) : ClapTrap(n)
+{
+	hitPoints = 100;
+	energyPoints = 50;
+	attackDamage = 20;
+	std::cout << "ScavTrap " << name << " constructed" << std::endl;
 }
 
-ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name) {
-    _hitPoints = 100;
-    _energyPoints = 50;
-    _attackDamage = 20;
-    std::cout << "ScavTrap constructor with name called\n";
+ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
+{
+	std::cout << "ScavTrap copy constructed" << std::endl;
+	*this = other;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other) {
-    std::cout << "ScavTrap copy constructor called\n";
-    *this = other;
-}
-
-ScavTrap &ScavTrap::operator=(const ScavTrap &other) {
-    std::cout << "ScavTrap copy assignment operator called\n";
-    if (this != &other) {
+ScavTrap &ScavTrap::operator=(const ScavTrap &other)
+{
+    if (this != &other)
+    {
         ClapTrap::operator=(other);
+        std::cout << "ScavTrap assigned" << std::endl;
     }
     return *this;
 }
 
-ScavTrap::~ScavTrap() {
-    std::cout << "ScavTrap destructor called\n";
+ScavTrap::~ScavTrap()
+{
+	std::cout << "ScavTrap " << name << " destructed" << std::endl;
 }
 
-void ScavTrap::attack(const std::string &target) {
-    if (_hitPoints <= 0 || _energyPoints <= 0) {
-        std::cout << "ScavTrap " << _name << " cannot attack.\n";
-        return;
-    }
-    _energyPoints--;
-    std::cout << "ScavTrap " << _name << " attacks " << target
-              << ", causing " << _attackDamage << " points of damage!\n";
+void ScavTrap::attack(const std::string &target)
+{
+	if (hitPoints > 0 && energyPoints > 0)
+	{
+		energyPoints--;
+		std::cout << "ScavTrap " << name << " attacks " << target
+				  << ", causing " << attackDamage << " points of damage!" << std::endl;
+	}
+	else
+		std::cout << "ScavTrap " << name << " cannot attack" << std::endl;
 }
 
-void ScavTrap::guardGate() {
-    std::cout << "ScavTrap " << _name << " is now in Gate keeper mode!\n";
+void ScavTrap::guardGate()
+{
+	std::cout << "ScavTrap " << name << " is now in Gate keeper mode" << std::endl;
 }

@@ -1,16 +1,26 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
-#include <iostream>
 
-int main() {
-    FragTrap f1("Hero");
-    f1.attack("Enemy");
-    f1.highFivesGuys();
-    f1.takeDamage(50);
-    f1.beRepaired(40);
-    f1.takeDamage(100);
-    f1.beRepaired(10);
+int main()
+{
+	ClapTrap c("Clappy");
+	ScavTrap s("Scavy");
+	FragTrap f("Fraggy");
 
-    return 0;
+	c.attack("an enemy");
+	s.attack("an enemy");
+	f.attack("an enemy");
+
+	c.beRepaired(5);
+	s.beRepaired(10);
+	f.beRepaired(15);
+
+	c.takeDamage(5);
+	s.takeDamage(20);
+	f.takeDamage(40);
+
+	s.guardGate();
+	f.highFivesGuys();
+	return 0;
 }
